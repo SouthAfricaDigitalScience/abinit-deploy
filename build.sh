@@ -71,9 +71,9 @@ cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 --enable-mpi-io \
 --enable-openmp \
 --with-mpi-prefix=${OPENMPI_DIR} \
---with-fft-flavor="fftw3" \
---with-fft-incs="-I${FFTW_DIR}/include" \
---with-fft-libs="-L${FFTW_DIR}/lib -lfftw3 -lfftw3f -lfftw3f_omp -lfftw3_mpi" \
+  --with-fft-flavor="fftw3" \
+  --with-fft-incs="-I${FFTW_DIR}/include" \
+  --with-fft-libs="-L${FFTW_DIR}/lib -lfftw3 -lfftw3f -lfftw3_mpi -lfftw3f_mpi" \
 --with-linalg-flavour="netlib" \
 --with-linalg-incs="-I${LAPACK_DIR}/include" \
 --with-linalg-libs="-L${LAPACK_DIR}/lib -lblas -llapack" \
