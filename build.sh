@@ -9,7 +9,7 @@ module add gsl
 module add gcc/${GCC_VERSION}
 module add lapack/3.6.0-gcc-${GCC_VERSION}
 module add openmpi/${OPENMPI_VERSION}-gcc-${GCC_VERSION}
-module add fftw/fftw/3.3.4-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION}
+module add fftw/3.3.4-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION}
 module add netcdf/4.3.2-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION}
 
 # Next, a bit of verbose description of the build environment. This is useful when debugging initial builds and you
