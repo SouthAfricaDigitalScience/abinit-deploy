@@ -11,8 +11,8 @@ module add openmpi/${OPENMPI_VERSION}-gcc-${GCC_VERSION}
 module add fftw/3.3.4-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION}
 module add netcdf/4.3.2-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION}
 
-cd ${WORKSPACE}/${NAME}-${VERSION}/tests
-python runtests.py -n2
+cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
+python ../tests/runtests.py -n2
 
 echo "tests have passed, now doing install"
 cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
