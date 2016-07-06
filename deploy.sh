@@ -60,7 +60,8 @@ setenv ABINIT_DIR $::env(CVMFS_DIR)/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/$
 setenv ABINIT_ROOT $::env(ABINIT_DIR)
 setenv CFLAGS "$CFLAGS -I$::env(ABINIT_DIR)/include -L$::env(ABINIT_DIR)/lib"
 prepend-path CPATH $::env(ABINIT_DIR)/include
-prepend-path LD_LIBRARY_PATH $::env(ABINIT_DIR)
+prepend-path LD_LIBRARY_PATH $::env(ABINIT_DIR)/lib
+prepend-path PATH            $::env(ABINIT_DIR)/bin
 MODULE_FILE
 ) > modules/${VERSION}-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION}
 mkdir -p ${CHEMISTRY_MODULES}/${NAME}
