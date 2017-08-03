@@ -38,12 +38,17 @@ module add lapack/3.6.0-gcc-${GCC_VERSION}
 module add fftw/3.3.4-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION}
 module add netcdf/4.3.2-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION}
 setenv ABINIT_VERSION $VERSION
-setenv ABINIT_DIR /apprepo/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/${VERSION}/${VERSION}-mpi-${OPENMPI_VERSION}-gcc-${GCC_VERSION}
+setenv ABINIT_DIR /data/ci-build/$::env(SITE)/$::env(OS)/$::env(ARCH)/$NAME/${VERSION}/${VERSION}-mpi-${OPENMPI_VERSION}-gcc-${GCC_VERSION}
 setenv ABINIT_ROOT $::env(ABINIT_DIR)
 setenv CFLAGS "$CFLAGS -I$::env(ABINIT_DIR)/include -L$::env(ABINIT_DIR)/lib"
 prepend-path CPATH $::env(ABINIT_DIR)/include
 prepend-path LD_LIBRARY_PATH $::env(ABINIT_DIR)
 MODULE_FILE
 ) > modules/${VERSION}-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION}
-mkdir -p ${CHEMISTRY_MODULES}/${NAME}
-cp modules/${VERSION}-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION} ${CHEMISTRY_MODULES}/${NAME}
+mkdir -p ${CHEMISTRY}/${NAME}
+cp modules/${VERSION}-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION} ${CHEMISTRY}/${NAME}
+
+echo "checking module availability"
+module avail $NAME
+echo "adding module"
+module add ${NAME}/${VERSION}-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION}

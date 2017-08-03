@@ -86,4 +86,4 @@ cd ${WORKSPACE}/${NAME}-${VERSION}/build-${BUILD_NUMBER}
 
 # The build nodes have 8 core jobs. jobs are blocking, which means you can build with at least 8 core parallelism.
 # this might cause instability in the builds, so it's up to you.
-nice -n20 make -j2
+nice -n20 make 

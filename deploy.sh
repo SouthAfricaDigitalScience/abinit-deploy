@@ -64,5 +64,11 @@ prepend-path LD_LIBRARY_PATH $::env(ABINIT_DIR)/lib
 prepend-path PATH            $::env(ABINIT_DIR)/bin
 MODULE_FILE
 ) > modules/${VERSION}-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION}
-mkdir -p ${CHEMISTRY_MODULES}/${NAME}
-cp modules/${VERSION}-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION} ${CHEMISTRY_MODULES}/${NAME}
+mkdir -p ${CHEMISTRY}/${NAME}
+cp modules/${VERSION}-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION} ${CHEMISTRY}/${NAME}
+
+
+echo "checking module availability"
+module avail $NAME
+echo "adding module"
+module add ${NAME}/${VERSION}-gcc-${GCC_VERSION}-mpi-${OPENMPI_VERSION}
